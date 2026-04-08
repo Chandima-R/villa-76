@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useRef} from "react";
 
-export const CustomCursor = ()=> {
+export const CustomCursor = () => {
     const dot  = useRef<HTMLDivElement>(null);
     const ring = useRef<HTMLDivElement>(null);
 

@@ -2,7 +2,7 @@
 import {useEffect} from "react";
 import Lenis from "lenis";
 
-export const SmoothScroll = ({ children }: { children: React.ReactNode })=> {
+export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.6,
