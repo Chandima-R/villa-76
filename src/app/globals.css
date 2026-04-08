@@ -224,3 +224,117 @@ body {
 }
 .nav-link:hover, .nav-link.active { color: var(--color-gold); }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+/* ─── Char Split Animation ───────────────────────────── */
+.split-char-wrap { overflow: hidden; display: inline-block; }
+.split-char      { display: inline-block; will-change: transform; }
+
+/* ─── Text Gradient ──────────────────────────────────── */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #C9A96E 0%, #DEC090 50%, #C9A96E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── Ambient glow on hover for cards ───────────────── */
+.glow-hover {
+    transition: box-shadow .5s var(--ease-luxury);
+}
+.glow-hover:hover {
+    box-shadow: 0 0 40px rgba(91, 155, 181, .08), 0 0 80px rgba(201, 169, 110, .04);
+}
+
+/* ─── Wave separator ─────────────────────────────────── */
+.wave-sep {
+    width: 100%; overflow: hidden; line-height: 0;
+}
+.wave-sep svg { display: block; width: 100%; }
+
+/* ─── Staggered border top animation ────────────────── */
+@keyframes borderSlide {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+.animate-border {
+    position: relative;
+}
+.animate-border::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: var(--color-gold);
+    transform: scaleX(0); transform-origin: left;
+    animation: borderSlide .8s var(--ease-luxury) forwards;
+}
+
+/* ─── Image tint overlay for hover ──────────────────── */
+.img-tint::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(201, 169, 110, 0);
+    transition: background .6s var(--ease-luxury);
+    pointer-events: none;
+}
+.img-tint:hover::after {
+    background: rgba(201, 169, 110, .05);
+}
+
+/* ─── Pulsing availability dot ───────────────────────── */
+@keyframes availPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .5; transform: scale(.7); }
+}
+.avail-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #4ade80;
+    animation: availPulse 2.4s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* ─── Underline reveal on scroll ────────────────────── */
+.underline-reveal {
+    position: relative; display: inline;
+}
+.underline-reveal::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 100%; height: 1px;
+    background: var(--color-gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1s var(--ease-luxury);
+}
+.underline-reveal.revealed::after {
+    transform: scaleX(1);
+}
+
+/* ─── Horizontal scroll snap hint ───────────────────── */
+.snap-x-hint {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.snap-x-hint::-webkit-scrollbar { display: none; }
+
+/* ─── Card shine effect ──────────────────────────────── */
+.card-shine {
+    position: relative; overflow: hidden;
+}
+.card-shine::before {
+    content: '';
+    position: absolute; top: -100%; left: -100%;
+    width: 60%; height: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.04) 50%, transparent 60%);
+    transform: skewX(-20deg);
+    transition: none;
+    pointer-events: none;
+    z-index: 1;
+}
+.card-shine:hover::before {
+    animation: shine .7s var(--ease-luxury) forwards;
+}
+@keyframes shine {
+    from { left: -100%; top: -100%; }
+    to   { left: 200%;  top: -100%; }
+}
+
+/* ─── Number ticker ──────────────────────────────────── */
+.ticker-num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
