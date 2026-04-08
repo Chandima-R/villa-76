@@ -113,7 +113,7 @@ export const DiningPage = ()=> {
             />
 
             {/* Intro statement */}
-            <section className="py-24 lg:py-36 px-8 lg:px-14 bg-[#04090F] overflow-hidden">
+            <section className="py-24 lg:py-36 px-8 lg:px-14 bg-[#04090F] overflow-hidden relative">
                 <div className="orb orb-gold w-[500px] h-[500px] top-0 left-0 opacity-20" />
                 <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <h2 className="din-intro-h display text-[5vw] lg:text-[3.5vw] font-light leading-[1.2] text-[#EAE6DE] perspective-[600px]" style={{ perspective: "600px" }}>
@@ -134,14 +134,14 @@ export const DiningPage = ()=> {
             </section>
 
             {/* Dining features */}
-            <section className="pb-24 px-8 lg:px-14 bg-[#04090F]">
+            <section className="pb-24 px-8 lg:px-14 bg-[#04090F] relative">
                 <div className="max-w-[1600px] mx-auto">
                     {diningFeatures.map((f, i) => <DiningFeature key={f.n} f={f} i={i} />)}
                 </div>
             </section>
 
             {/* Nearby restaurants strip */}
-            <section className="py-20 px-8 lg:px-14 bg-[#071220]">
+            <section className="py-20 px-8 lg:px-14 bg-[#071220] relative">
                 <div className="max-w-[1600px] mx-auto">
                     <div className="label mb-10">Nearby Favourites</div>
                     <div className="grid lg:grid-cols-3 gap-5">
