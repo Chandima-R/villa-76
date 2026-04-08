@@ -1,4 +1,4 @@
-'use client`'
+'use client'
 
 import {useEffect, useRef, useState} from "react";
 import {gsap} from "@/lib/gsap";
@@ -11,7 +11,7 @@ const reviews = [
     { q:"Friendly owner, pristine rooms, and the fully equipped kitchen is a genuine game-changer. Villa 76 hits every note — location, cleanliness, and service all top-tier.", by:"Priya M.", from:"Australia", score:"9.4" },
 ];
 
-export const HomeTestimonials = ()=> {
+export const HomeTestimonials = () => {
     const [cur, setCur] = useState(0);
     const [dir, setDir] = useState(1);
     const s = useRef<HTMLElement>(null);

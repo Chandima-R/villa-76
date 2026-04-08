@@ -2,7 +2,7 @@
 import {useEffect, useRef} from "react";
 import {gsap, splitWords} from "@/lib/gsap";
 
-export const HomeIntro = () => {
+export const HomeIntro = ()=> {
     const ref   = useRef<HTMLElement>(null);
     const quote = useRef<HTMLHeadingElement>(null);
     const stats = useRef<HTMLDivElement>(null);

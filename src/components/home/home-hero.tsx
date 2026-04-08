@@ -2,7 +2,7 @@
 import {useEffect, useRef} from "react";
 import {gsap, splitWords} from "@/lib/gsap";
 
-export const HomeHero = () => {
+export const HomeHero = ()=> {
     const s   = useRef<HTMLElement>(null);
     const bg  = useRef<HTMLDivElement>(null);
     const h1  = useRef<HTMLHeadingElement>(null);
@@ -55,12 +55,12 @@ export const HomeHero = () => {
 
             {/* Coordinates — top right */}
             <div className="absolute top-28 right-8 lg:right-14 z-10 text-right">
-                <p className="ui text-[9px] tracking-[.3em] text-white uppercase">6.0535° N, 80.4481° E</p>
-                <p className="ui text-[9px] tracking-[.2em] text-white uppercase mt-1">Southern Coast · Sri Lanka</p>
+                <p className="ui text-[9px] tracking-[.3em] text-[#C9A96E]/50 uppercase">6.0535° N, 80.4481° E</p>
+                <p className="ui text-[9px] tracking-[.2em] text-[#5B9BB5]/40 uppercase mt-1">Southern Coast · Sri Lanka</p>
             </div>
 
             {/* Scroll line */}
-            <div className="absolute right-8 lg:right-14 bottom-44 z-10 flex flex-col items-center gap-3">
+            <div className="absolute right-8 lg:right-14 bottom-28 z-10 flex flex-col items-center gap-3">
                 <div className="w-px h-14 bg-gradient-to-b from-transparent to-[#C9A96E]/60" />
                 <span className="ui text-[8px] tracking-[.35em] text-[#C9A96E]/45 uppercase [writing-mode:vertical-rl]">Scroll</span>
             </div>
@@ -70,7 +70,7 @@ export const HomeHero = () => {
                 <div className="label mb-7 opacity-80">A Coastal Sanctuary</div>
 
                 <h1 ref={h1}
-                    className="display text-[14vw] lg:text-[11.5vw] font-light leading-[.88] tracking-[-0.01em] text-[#EAE6DE] mb-12 perspective-[800px]"
+                    className="display text-[14vw] lg:text-[11.5vw] font-light leading-[.88] tracking-[-0.01em] text-[#EAE6DE] mb-8 perspective-[800px]"
                     style={{ perspective: "800px" }}>
                     Villa 76{"\n"}Weligama
                 </h1>

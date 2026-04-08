@@ -3,7 +3,7 @@ import {useEffect, useRef} from "react";
 import {gsap, splitWords} from "@/lib/gsap";
 import Link from "next/link";
 
-export const HomeDining = ()=> {
+export const HomeDining = () => {
     const s   = useRef<HTMLElement>(null);
     const h   = useRef<HTMLHeadingElement>(null);
     const img = useRef<HTMLDivElement>(null);

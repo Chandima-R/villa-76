@@ -33,10 +33,13 @@ export const HomeRooms = ()=> {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const cards = track.current!.querySelectorAll<HTMLDivElement>(".room-card");
-            const totalWidth = track.current!.scrollWidth - window.innerWidth;
+            if (!track.current || !pin.current) return;
 
-            const horizontal = gsap.to(track.current, {
+            const cards = gsap.utils.toArray<HTMLDivElement>(".room-card");
+            const totalWidth = track.current.scrollWidth - window.innerWidth;
+
+            // ✅ STORE the horizontal scroll animation
+            const scrollTween = gsap.to(track.current, {
                 x: -totalWidth,
                 ease: "none",
                 scrollTrigger: {
@@ -49,37 +52,45 @@ export const HomeRooms = ()=> {
                 },
             });
 
-            gsap.to(track.current, {
-                x: -totalWidth,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: pin.current,
-                    start: "top top",
-                    end: () => `+=${totalWidth + window.innerHeight * 0.5}`,
-                    pin: true,
-                    scrub: 1.2,
-                    anticipatePin: 1,
-                },
-            });
-
-
-            // Each card reveal as it enters
+            // ✅ Card image scaling tied to horizontal scroll
             cards.forEach((card) => {
-                gsap.fromTo(card.querySelector(".card-img"), { scale: 1.12 }, {
-                    scale: 1, ease: "none",
-                    scrollTrigger: {
-                        trigger: card, containerAnimation: horizontal,
-                        start: "left right", end: "right right", scrub: true,
-                    },
-                });
+                const img = card.querySelector(".card-img");
+                if (!img) return;
+
+                gsap.fromTo(
+                    img,
+                    { scale: 1.12 },
+                    {
+                        scale: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: card,
+                            containerAnimation: scrollTween, // ✅ FIXED
+                            start: "left right",
+                            end: "right right",
+                            scrub: true,
+                        },
+                    }
+                );
             });
 
-            // Section heading line
-            gsap.fromTo(".rooms-heading .w", { yPercent: 110 }, {
-                yPercent: 0, stagger: 0.06, duration: 1.0, ease: "power4.out",
-                scrollTrigger: { trigger: pin.current, start: "top 90%" },
-            });
+            // ✅ Section heading animation
+            gsap.fromTo(
+                ".rooms-heading .w",
+                { yPercent: 110 },
+                {
+                    yPercent: 0,
+                    stagger: 0.06,
+                    duration: 1.0,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: pin.current,
+                        start: "top 90%",
+                    },
+                }
+            );
         });
+
         return () => ctx.revert();
     }, []);
 
