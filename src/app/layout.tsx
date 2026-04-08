@@ -8,6 +8,7 @@ import {ScrollProgress} from "@/components/ui/scroll-progress";
 import {FloatingReserve} from "@/components/ui/floating-reserve";
 import {PageTransition} from "@/components/ui/page-transition";
 import {ClientShell} from "@/components/ui/client-shell";
+import {BackToTop} from "@/components/ui/back-top-top";
 
 export const metadata: Metadata = {
     title: { default: "Villa 76 — Weligama", template: "%s · Villa 76 Weligama" },
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <PageTransition />
                 <Navbar />
                 <FloatingReserve />
+                <BackToTop />
                 <main>{children}</main>
                 <Footer />
             </ClientShell>
