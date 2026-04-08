@@ -39,9 +39,9 @@ export const CustomCursor = () => {
     }, []);
 
     return (
-        <>
+        <div className="hidden md:block">
             <div ref={dot}  className="c-dot"  />
             <div ref={ring} className="c-ring" />
-        </>
+        </div>
     );
 }
